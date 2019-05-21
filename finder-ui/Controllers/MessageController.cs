@@ -11,6 +11,7 @@ namespace finder_ui.Controllers
         // GET: Message
         public ActionResult Index()
         {
+            //Hej
             return View();
         }
     }
