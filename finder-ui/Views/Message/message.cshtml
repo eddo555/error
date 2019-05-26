@@ -1,0 +1,49 @@
+﻿@model finder_ui.MessageServiceReference.AddMessage
+@{
+    IEnumerable<finder_ui.MessageServiceReference.Messageinfo> Lista = ViewBag.Lista;
+}
+
+@foreach (var item in Lista)
+{
+
+    <div class="activemessage messagecontainer">
+        <p style="float:left;">@Html.DisplayFor(m => item.Message)</p>
+        <label>test recieving && sendingId</label> @*ta bort efter*@
+        <p>@Html.DisplayFor(m => item.RecievingUserId)</p>
+        <p>@Html.DisplayFor(m => item.SendingUserId)</p>
+
+
+
+
+
+        <hr width="90%">
+    </div>
+}
+    <div>
+
+        @using (Html.BeginForm())
+        {
+
+
+            @Html.LabelFor(model => model.RecievingUserId)<br />
+            @Html.EditorFor(model => model.RecievingUserId)<br />
+
+
+            @Html.LabelFor(model => model.Message)<br />
+            @Html.EditorFor(model => model.Message)<br />
+
+            @Html.LabelFor(model => model.ServiceId)<br />
+            @Html.EditorFor(model => model.ServiceId)<br />
+
+            @Html.LabelFor(model => model.ServiceTitle)<br />
+            @Html.EditorFor(model => model.ServiceTitle)<br />
+
+
+
+
+            <input type="submit" value="Skicka meddelande" />
+        }
+
+
+    </div>
+

@@ -38,6 +38,9 @@
 
                 <p>@Html.DisplayFor(m => svar.Title)</p>
                 <p>@Html.DisplayFor(m => svar.CreatedTime)</p>
+
+                @*Skapa en länk som skickar med recievingUserId till messagevy*@
+
             </div>
 
 
@@ -59,7 +62,7 @@
                            onclick="location.href='@Url.Action("Action", "Controller")'" />
 
                     @*<button>@Html.ActionLink("Skapa Kontrakt", "Create", "Service", new { serviceId=Model.ServiceId , counterpartId=Model.RecievingUserId,
-                        serviceOwnerId =Model.SendingUserId, contractCreatorId=Model.Id })</button>*@
+                serviceOwnerId =Model.SendingUserId, contractCreatorId=Model.Id })</button>*@
 
                 </div>
 
@@ -68,13 +71,13 @@
 
                     <div class="activemessage messagecontainer">
                         <p style="float:left;">@Html.DisplayFor(m => item.Message)</p>
-                        <label>test recieving && sendingId</label> @*ta bort efter*@ 
+                        <br /><label>test recieving && sendingId</label> @*ta bort efter*@
                         <p>@Html.DisplayFor(m => item.RecievingUserId)</p>
                         <p>@Html.DisplayFor(m => item.SendingUserId)</p>
-                        
 
 
 
+                        @*istället ha en knapp(länk) som går till messageVy och där postar man*@
 
                         <hr width="90%">
                     </div>
@@ -84,11 +87,12 @@
             <br />
             <br />
             <button type="submit">Send</button>
+            @Html.ActionLink("Button Name", "Message", "Message", new {id=10 }, new { }) 
         </div>
 
 
     </div>
-    //detta tas bort sen, måste införas ovan
+    @*//detta tas bort sen, måste införas ovan
 <div>
 
     @using (Html.BeginForm())
@@ -115,7 +119,7 @@
     }
 
 
-</div>
+</div>*@
 
 @*@Html.LabelFor(model => returnUsers, "reciever", htmlAttributes: new { @class = "control-label col-md-2" })
 

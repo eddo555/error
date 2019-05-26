@@ -79,6 +79,19 @@ namespace finder_ui.Controllers
             ViewBag.Lista = messagelist;
             return RedirectToAction("index","message");
         }
+
+        //ny vy med alla recievingUserId av ett slag, inparameter måste skapas i index vy
+        public ActionResult Message (int id)
+        {
+            int sessId = Convert.ToInt32(Session["UserId"]); //parsar sessionId till int
+            IEnumerable<MessageServiceReference.Messageinfo> messageList = messageClient.GetMessages().ToList();
+
+
+            ViewBag.userMedd = messageClient.GetUserMessage(sessId); //hämtar ens egna meddelanden
+            ViewBag.Lista = messageList.Where(x => x.SendingUserId == sessId && x.RecievingUserId== id);// visar lista på endast egna meddelanden
+
+            return View();
+        }
        
     }
 }
