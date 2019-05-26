@@ -36,6 +36,7 @@ namespace finder_ui.Controllers
             ViewBag.test = getUsers.GetActiveUsers().Where(x => x.ID == sessId).ToList(); // test ger info om specifik active user
 
 
+
 //            IEnumerable<Group3ServiceReference.Service> services = adClient.AdvancedSearch
 //(
 ///* 
@@ -63,6 +64,7 @@ namespace finder_ui.Controllers
 //new List<int>().ToArray()
 //)
 //.ToList();
+
 
             return View();
         }

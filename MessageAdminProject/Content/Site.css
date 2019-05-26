@@ -1,7 +1,35 @@
 ﻿
 /* Set padding to keep content from hitting the edges */
+/*Pontus CSS för tabeller*/
+#meddelanden {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+}
 
+    #meddelanden td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
 
+    #meddelanden tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #meddelanden tr:hover {
+        background-color: #ddd;
+    }
+
+    #meddelanden th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: limegreen;
+        color: white;
+    }
+
+/*William CSS*/
 .header {
     overflow: hidden;
     background-color: white;
@@ -286,7 +314,6 @@ button {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
 }
 
@@ -309,6 +336,10 @@ ul, li {
 
 a {
     text-decoration: none;
+    color:whitesmoke;
+}
+a:hover{
+    color: black;
 }
 
 .profile-wrapper {

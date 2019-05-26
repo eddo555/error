@@ -6,18 +6,19 @@
 @{ IEnumerable<MessageAdminProject.MeddelandeServiceReference.Messageinfo> Lista = ViewBag.Lista;
 }
 <div>
-    @ViewBag.HelloMsg
-    <table border="1">
+    <br/>
+    <table id="meddelanden">
+
         <tr>
-            <td>@Html.DisplayNameFor(m => m.Id)</td>
-            <td>@Html.DisplayNameFor(m => m.Message)</td>
-            <td>@Html.DisplayNameFor(m => m.RecievingUserId)</td>
-            <td>@Html.DisplayNameFor(m => m.SendingUserId)</td>
-            <td>@Html.DisplayNameFor(m => m.ServiceId)</td>
-            <td>@Html.DisplayNameFor(m => m.ServiceTitle)</td>
-            <td>@Html.DisplayNameFor(m => m.Time)</td>
-            <td>@Html.DisplayNameFor(m => m.UserPicture)</td>
-            <td>Radera?</td>
+            <th>@Html.DisplayNameFor(m => m.Id)</th>
+            <th>@Html.DisplayNameFor(m => m.Message)</th>
+            <th>@Html.DisplayNameFor(m => m.RecievingUserId)</th>
+            <th>@Html.DisplayNameFor(m => m.SendingUserId)</th>
+            <th>@Html.DisplayNameFor(m => m.ServiceId)</th>
+            <th>@Html.DisplayNameFor(m => m.ServiceTitle)</th>
+            <th>@Html.DisplayNameFor(m => m.Time)</th>
+            <th>@Html.DisplayNameFor(m => m.UserPicture)</th>
+            <th>Radera?</th>
 
         </tr>
 
@@ -32,9 +33,8 @@
                 <td>@Html.DisplayFor(m => item.ServiceTitle)</td>
                 <td>@Html.DisplayFor(m => item.Time)</td>
                 <td>@Html.DisplayFor(m => item.UserPicture)</td>
-                <td>@Html.ActionLink("Radera", "DeleteMessage", new { id = item.Id })</td>
+                <td><button style="background-color: limegreen">@Html.ActionLink("Radera", "DeleteMessage", new { id = item.Id })</button></td>
             </tr>
-            <hr width="90%">
         }
     </table>
 </div>
