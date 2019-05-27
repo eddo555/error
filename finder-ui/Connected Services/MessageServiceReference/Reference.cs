@@ -28,13 +28,10 @@ namespace finder_ui.MessageServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RecievingUserIdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SendingUserIdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ServiceIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -82,7 +79,7 @@ namespace finder_ui.MessageServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int RecievingUserId {
             get {
                 return this.RecievingUserIdField;
@@ -95,7 +92,7 @@ namespace finder_ui.MessageServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int SendingUserId {
             get {
                 return this.SendingUserIdField;
@@ -108,7 +105,7 @@ namespace finder_ui.MessageServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int ServiceId {
             get {
                 return this.ServiceIdField;

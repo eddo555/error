@@ -36,36 +36,6 @@ namespace finder_ui.Controllers
             ViewBag.test = getUsers.GetActiveUsers().Where(x => x.ID == sessId).ToList(); // test ger info om specifik active user
 
 
-
-//            IEnumerable<Group3ServiceReference.Service> services = adClient.AdvancedSearch
-//(
-///* 
-//                     * Signatur: 
-//                     * DateRange createdTime, 
-//                     * DateRange startDate, 
-//                     * DateRange endDate, 
-//                     * int creatorId, 
-//                     * string title, 
-//                     * string description, 
-//                     * PriceRange price,
-//                     * int serviceStatusId, 
-//                     * List< int > serviceTypeIds, 
-//                     * List<int> subCategoryIds
-//                     * */
-//                    new Group3ServiceReference.DateRange(),
-//new Group3ServiceReference.DateRange(),
-//new Group3ServiceReference.DateRange(),
-//sessId,
-//null, // Titel
-//                    null,
-//new Group3ServiceReference.PriceRange(),
-//0,  // <--- Det här är status
-//                    new List<int>().ToArray(),
-//new List<int>().ToArray()
-//)
-//.ToList();
-
-
             return View();
         }
 
@@ -92,6 +62,43 @@ namespace finder_ui.Controllers
 
             return View();
         }
-       
+        [HttpPost]
+        public ActionResult Message(MessageServiceReference.AddMessage newMessage, int id)
+        {
+            int sessId = Convert.ToInt32(Session["UserId"]); //parsar sessionId till int
+            IEnumerable<MessageServiceReference.Messageinfo> messageList = messageClient.GetMessages().ToList();
+            messageClient.AddMessage(newMessage, sessId);
+
+            ViewBag.userMedd = messageClient.GetUserMessage(sessId); //hämtar ens egna meddelanden
+            ViewBag.Lista = messageList.Where(x => x.SendingUserId == sessId && x.RecievingUserId == id);// visar lista på endast egna meddelanden
+
+            return RedirectToAction("Message", "Message");
+        }
+        public ActionResult Search()
+        {
+            Group3ServiceReference.Service1Client search = new Group3ServiceReference.Service1Client();
+            ViewBag.search = search.Search("hund").ToList();
+            
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Search(string a)
+        {
+            Group3ServiceReference.Service1Client search = new Group3ServiceReference.Service1Client();
+            ViewBag.search = search.Search(a).ToList();
+
+
+            return View();
+        }
+
+        public ActionResult Kontrakt (int serviceId, int counterpartId, int serviceOwnerId)
+        {
+            Group3ServiceReference.Service1Client skapaKontrakt = new Group3ServiceReference.Service1Client();
+            ViewBag.skapaKontrakt = skapaKontrakt.CreateContract();
+
+            return View();
+        }
+
     }
 }
