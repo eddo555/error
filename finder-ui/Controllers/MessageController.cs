@@ -84,25 +84,8 @@ namespace finder_ui.Controllers
             ////ViewBag.userMedd = messageClient.GetUserMessage(sessId); //hämtar ens egna meddelanden
           //ViewBag.Lista = messageList.Where(x => x.SendingUserId == sessId && x.RecievingUserId == id);// visar lista på endast egna meddelanden
 
-            return RedirectToAction("me", "Message");//servid 
+            return RedirectToAction("Message", "Message");//servid 
         }
-
-        /*test om funkar med serviceid*/ /*servern funkar inte blir fel metadata men behöver denna för att ta ta emot serviceid och titel*/
-        [HttpPost]
-        //public ActionResult MessageFull(MessageServiceReference.AddMessage newMessage, int id, int serviceId, string title)
-        //{
-        //    int sessId = Convert.ToInt32(Session["UserId"]); //parsar sessionId till int
-        //    IEnumerable<MessageServiceReference.Messageinfo> messageList = messageClient.GetMessages().ToList();
-        //    messageClient.AddMessageFull(newMessage, sessId, id, serviceId, title);
-
-        //    //ViewBag.userMedd = messageClient.GetUserMessage(sessId); //hämtar ens egna meddelanden
-        //    ViewBag.Lista = messageList.Where(x => x.SendingUserId == sessId && x.RecievingUserId == id);// visar lista på endast egna meddelanden
-
-        //    return RedirectToAction("messageFull", "Message");
-        //}
-        /*test om funkar med serviceid*/
-
-
 
 
         public ActionResult Searching()
