@@ -408,12 +408,21 @@ a {
 
 imgg {
     vertical-align: middle;
+.bold_green {
+    color: limegreen;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .img-responsivee {
     display: block;
     height: auto;
     max-width: 100%;
+.review-card-title { 
+    color: limegreen;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
 .navbarr {
